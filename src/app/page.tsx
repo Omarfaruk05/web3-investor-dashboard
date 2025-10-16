@@ -10,29 +10,29 @@ export default function Dashboard() {
 
   return (
     <main className="min-h-screen p-8">
-      <header className="flex justify-between items-center mb-8">
+      <header className="flex flex-col justify-between items-center gap-12">
         <h1 className="text-3xl font-bold">Crypto City Dashboard</h1>
         <ConnectWallet />
       </header>
 
       {isConnected ? (
-        <div className="grid gap-6">
+        <div className="grid gap-6 mt-12">
           {/* Network Info */}
-          <div className="p-4 border rounded-lg">
+          <div className="p-4 border border-gray-500 rounded-lg">
             <h2 className="text-xl font-semibold mb-2">Network</h2>
             <p>Chain: {chain?.name}</p>
             <p>Block: {blockNumber?.toString()}</p>
           </div>
 
           {/* Balance */}
-          <div className="p-4 border rounded-lg">
+          <div className="p-4 border border-gray-500 rounded-lg">
             <h2 className="text-xl font-semibold mb-2">Wallet</h2>
             <p>Address: {address}</p>
             <p>Balance: {balance?.formatted} {balance?.symbol}</p>
           </div>
 
           {/* Property Portfolio - Add your real estate components here */}
-          <div className="p-4 border rounded-lg">
+          <div className="p-4 border border-gray-500 rounded-lg">
             <h2 className="text-xl font-semibold mb-2">Property Portfolio</h2>
             <p className="text-gray-500">Your tokenized real estate assets will appear here</p>
             {/* Add your property list component */}
