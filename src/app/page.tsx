@@ -1,12 +1,13 @@
-'use client'
+'use client';
 
-import { ConnectWallet } from '@/components/ConnectWallet'
-import { useAccount, useBalance, useBlockNumber } from 'wagmi'
+import { ConnectWallet } from '@/components/ConnectWallet';
+import OwnedProperties from '@/components/OwnedProperties';
+import { useAccount, useBalance, useBlockNumber } from 'wagmi';
 
 export default function Dashboard() {
-  const { address, isConnected, chain } = useAccount()
-  const { data: balance } = useBalance({ address })
-  const { data: blockNumber } = useBlockNumber({ watch: true })
+  const { address, isConnected, chain } = useAccount();
+  const { data: balance } = useBalance({ address });
+  const { data: blockNumber } = useBlockNumber({ query: { enabled: true, refetchInterval: 10000 } });
 
   return (
     <main className="min-h-screen p-8">
@@ -31,11 +32,10 @@ export default function Dashboard() {
             <p>Balance: {balance?.formatted} {balance?.symbol}</p>
           </div>
 
-          {/* Property Portfolio - Add your real estate components here */}
+          {/* Property Portfolio */}
           <div className="p-4 border border-gray-500 rounded-lg">
             <h2 className="text-xl font-semibold mb-2">Property Portfolio</h2>
-            <p className="text-gray-500">Your tokenized real estate assets will appear here</p>
-            {/* Add your property list component */}
+            <OwnedProperties />
           </div>
         </div>
       ) : (
@@ -49,5 +49,5 @@ export default function Dashboard() {
         </div>
       )}
     </main>
-  )
+  );
 }
