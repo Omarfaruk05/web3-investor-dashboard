@@ -13,7 +13,6 @@ export default function OwnedProperties() {
         functionName: 'balanceOf',
         args: [address],
     });
-    console.log('faruk', balance,)
 
 
     return (

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 export function ConnectWallet() {
@@ -13,6 +14,12 @@ export function ConnectWallet() {
                 <span className="text-sm">
                     Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
                 </span>
+                <Link
+                    href={"/dashboard"}
+                    className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                >
+                    Dashboard
+                </Link>
                 <button
                     onClick={() => disconnect()}
                     className="px-4 py-2 bg-red-500 text-white rounded-lg"
