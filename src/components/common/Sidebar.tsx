@@ -1,6 +1,6 @@
 "use client";
 import { use, useState } from "react";
-import { FaHome, FaChartBar } from "react-icons/fa";
+import { FaHome, FaChartBar, FaPlusSquare } from "react-icons/fa";
 import { IoSettingsSharp, IoLogOut } from "react-icons/io5";
 import { HiMenuAlt2 } from "react-icons/hi";
 import Link from "next/link";
@@ -8,8 +8,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useDisconnect } from "wagmi";
 
 const navItems = [
-    { name: "Dashboard", href: "/dashboard", icon: <FaHome size={18} /> },
-    { name: "Analytics", href: "/analytics", icon: <FaChartBar size={18} /> },
+    { name: "All Properties", href: "/all-property", icon: <FaHome size={18} /> },
+    { name: "Add Property", href: "/add-property", icon: <FaPlusSquare size={18} /> },
     { name: "Settings", href: "/settings", icon: <IoSettingsSharp size={18} /> },
 ];
 
@@ -32,7 +32,7 @@ export default function Sidebar() {
                         }`}
                 >
                     {!collapsed && (
-                        <span className="text-lg font-bold tracking-wide">E-Estate</span>
+                        <span className="text-lg font-bold tracking-wide">Crypto City</span>
                     )}
                     <button
                         onClick={() => setCollapsed((prev) => !prev)}

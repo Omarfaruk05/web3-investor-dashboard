@@ -1,9 +1,11 @@
 "use client";
+import { useRealEstateToken } from "@/hooks/useRealEstateToken";
 import { FaBell, FaUser } from "react-icons/fa";
 import { useAccount } from "wagmi";
 
 export default function Navbar() {
     const { address, isConnected } = useAccount();
+    const {isOwner} = useRealEstateToken()
 
     return (
         <header className="fixed top-0 left-60 right-0 h-[61px] bg-gray-900 text-white border-b border-gray-700 flex items-center justify-between px-6 shadow-sm z-10">
@@ -20,13 +22,15 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                     <FaUser className="text-gray-600" size={20} />
                     {isConnected ? (
-                        <span className="text-sm text-gray-700">
-                            {address?.slice(0, 6)}...{address?.slice(-4)}
-                        </span>
+                        <div className="text-sm bg-gray-700 p-2 rounded">
+                            Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
+                            {isOwner && <span className="ml-2 bg-green-100 text-green-800 px-2 py-1 rounded">Owner</span>}
+                        </div>
                     ) : (
                         <span className="text-sm text-gray-500">Not Connected</span>
                     )}
                 </div>
+               
             </div>
         </header>
     );

@@ -16,7 +16,7 @@ export default function OwnedProperties() {
 
 
     return (
-        <div className="p-4 border rounded">
+        <div className="p-4 border border-gray-500 rounded">
             <h2 className="text-xl font-bold mb-2">Your Properties</h2>
             {!isConnected ? (
                 <p>Please connect your wallet.</p>
